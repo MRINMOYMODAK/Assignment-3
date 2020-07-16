@@ -1,11 +1,17 @@
 //assignment No - 01 , feet to mile conversion. 
 
-function feetToMile(feet){
-    let mile = feet/5280;                                                         // 1 mile = 5280 feet
-    return mile;
+function feetToMile(feetValue){
+    if (feetValue < 0){
+        return "Invalid value.Your value should be positive.";
+    }
+    else {
+        let result = feetValue/5280;
+        return result;
+    }
 }
-let outputInMile = feetToMile(1);
-console.log (outputInMile , "mile");
+let feet = 100000;
+let mileValue = feetToMile(feet);
+console.log(mileValue);
 
 
 
@@ -14,11 +20,18 @@ console.log (outputInMile , "mile");
 //assignment No - 02 , Wood calculator
 
 function woodCalculator(numbersOfChairs, numberOfTables, numberOfBeds){
-    requiredWoodForChairs = numbersOfChairs*1;                                       // 1 amount of wood/ chair 
-    requiredWoodForTables = numberOfTables*3;                                        // 3 amount of wood / chair 
-    requiredWoodForBeds = numberOfBeds*5;                                            // 5 amount of wood / bed 
-    requiredWood = requiredWoodForChairs + requiredWoodForTables + requiredWoodForBeds;
-    return [requiredWood,requiredWoodForChairs, requiredWoodForTables, requiredWoodForBeds] ;
+
+    if (numbersOfChairs<0 || numberOfTables<0 || numberOfBeds<0){
+        return "Invalid data. Number of chair, table or bed should be positive.";
+    }
+    else{
+        requiredWoodForChairs = numbersOfChairs*1;                                       // 1 amount of wood/ chair 
+        requiredWoodForTables = numberOfTables*3;                                        // 3 amount of wood / chair 
+        requiredWoodForBeds = numberOfBeds*5;                                            // 5 amount of wood / bed 
+        requiredWood = requiredWoodForChairs + requiredWoodForTables + requiredWoodForBeds;
+        return [requiredWood,requiredWoodForChairs, requiredWoodForTables, requiredWoodForBeds] ;
+    }
+        
 }
 let totalAmountOfWood = woodCalculator(5,6,8);
 console.log(['total amount of wood', 'required wood for chairs','required wood for tables', 'required wood for beds'], '=', totalAmountOfWood);
@@ -59,13 +72,18 @@ console.log(totalAmountOfBrick);
 //assignment No - 04 , find the tiny name from an array
 
 function tinyFriend(names){
-    let tinyWord = names[0];
-    for (var i=0; i<names.length; i++){
-        if (names[i].length < tinyWord.length){
-            tinyWord = names[i];
-        }
+    if(names.length==0){
+        return 'Empty array.';
     }
-          return tinyWord;
+    else{
+        let tinyWord = names[0];
+        for (var i=0; i<names.length; i++){
+            if (names[i].length < tinyWord.length){
+                tinyWord = names[i];
+            }
+         }
+            return tinyWord;
+    }
     
 }
 

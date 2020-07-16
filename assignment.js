@@ -78,14 +78,19 @@ function tinyFriend(names){
     else{
         let tinyWord = names[0];
         for (var i=0; i<names.length; i++){
-            if (names[i].length < tinyWord.length){
+            element = names[i];
+            if (element.length < tinyWord.length){
                 tinyWord = names[i];
             }
-         }
+            else if(element.length == tinyWord.length){
+                tinyWord = tinyWord+ "," +element;
+
+            }
+        }
             return tinyWord;
     }
     
 }
 
-tinyName = tinyFriend(['Rahim', 'Karim', 'Ikra', 'Rohima']);
+tinyName = tinyFriend(['Rahim', 'Karim', 'Ikra', 'Rohima','maha']);
 console.log(tinyName);

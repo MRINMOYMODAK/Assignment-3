@@ -26,7 +26,7 @@ function woodCalculator(numbersOfChairs, numberOfTables, numberOfBeds){
     }
     else{
         requiredWoodForChairs = numbersOfChairs*1;                                       // 1 amount of wood/ chair 
-        requiredWoodForTables = numberOfTables*3;                                        // 3 amount of wood / chair 
+        requiredWoodForTables = numberOfTables*3;                                        // 3 amount of wood / Table 
         requiredWoodForBeds = numberOfBeds*5;                                            // 5 amount of wood / bed 
         requiredWood = requiredWoodForChairs + requiredWoodForTables + requiredWoodForBeds;
         return [requiredWood,requiredWoodForChairs, requiredWoodForTables, requiredWoodForBeds] ;
@@ -46,7 +46,7 @@ console.log(['total amount of wood', 'required wood for chairs','required wood f
 
 function brickCalculator(numberOffloor){
     if (numberOffloor<=0){
-        return 'error input';                                                             //if we give negetive input it will show us error.
+        return 'Invalid data. The numbers of floor should be positive';                  //if we give negetive input it will show us error.
     }
     else if (numberOffloor<=10){
         requiredBrick = numberOffloor*15*1000;                                           //1st to 10th floor are 15 feet in height.
@@ -54,7 +54,7 @@ function brickCalculator(numberOffloor){
     }
     else if (numberOffloor<=20){
         requiredBrick = 10*15*1000 + (numberOffloor-10)*12*1000;                        // 11th to 20th floor are 12 feeet in height.
-        return requiredBrick
+        return requiredBrick;
     }
     else{
         requiredBrick = 10*15*1000 + 10*12*1000 + (numberOffloor-20)*10*1000;          // after 20th floor each floor is 10 feet in height.
